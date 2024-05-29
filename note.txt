@@ -1,0 +1,4 @@
+kubectl create namespace cka-1
+kubectl get namespace
+kubectl get deployment -o wide -n cka-1
+kubectl set image deployment nginx-deployment nginx=nginx:1.19.8 -n cka-1
