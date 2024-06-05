@@ -17,10 +17,10 @@ Vagrant.configure("2") do |config|
   (1..2).each do |i|
     hostname = "node-#{'%02d' % i}"
     config.vm.define "#{hostname}" do |node|
-	  node.vm.provider "virtualbox" do |pmv|
-	    pmv.memory = 4096
-		pmv.cpus = 3
-	  end
+      node.vm.provider "virtualbox" do |pmv|
+        pmv.memory = 6144
+        pmv.cpus = 4
+      end
       node.vm.hostname = "#{hostname}"
       node.vm.network "private_network", ip: "192.168.56.#{10 + i}"
     end
