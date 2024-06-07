@@ -7,6 +7,8 @@ https://docs.aws.amazon.com/eks/latest/userguide/metrics-server.html
         - --kubelet-insecure-tls
 
 https://spacelift.io/blog/kubernetes-dashboard
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
+
 https://kubernetes.io/docs/reference/kubectl/generated/kubectl_port-forward/
 https://www.cyberciti.biz/faq/unix-linux-check-if-port-is-in-use-command/
 https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md

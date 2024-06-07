@@ -1,0 +1,9 @@
+/mnt/nfs_share *(rw,insecure,sync,no_subtree_check,no_root_squash)
+/srv/nfs/kubedata *(rw,insecure,sync,no_subtree_check,no_root_squash)
+https://dev.to/lordrahl90/creating-an-nfs-server-with-vagrant-1oke
+
+https://www.howtoforge.com/tutorial/install-nfs-server-and-client-on-debian/
+https://thuanbui.me/cai-dat-nfs-server-va-nfs-client-tren-ubuntu-22-04/
+
+https://github.com/kubernetes-csi/csi-driver-nfs/blob/master/docs/driver-parameters.md
+192.168.10.15 nfs-server.example.com nfs-server
