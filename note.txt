@@ -5,3 +5,5 @@ kubectl set image deployment nginx-deployment nginx=nginx:1.19.8 -n cka-1
 
 kubectl port-forward --address 0.0.0.0 --namespace=ingress-nginx service/ingress-nginx-controller 8080:80
 sudo cp -i /etc/kubernetes/admin.conf /vagrant/config
+
+/mnt/nfs_share *(rw,insecure,sync,no_subtree_check,no_root_squash)

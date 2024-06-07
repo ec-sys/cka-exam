@@ -1,0 +1,28 @@
+#filename=Vagrantfile
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |cf|
+  # NFS Server
+  cf.vm.define "nfs-server" do |nfs|
+    nfs.vm.box = "bento/ubuntu-22.04"
+    nfs.vm.hostname = "nfs-server.example.com"
+    nfs.vm.network "private_network", ip: "192.168.10.15"
+    nfs.vm.provider "virtualbox" do |n|
+      n.name = "nfs-server"
+      n.memory = 1024
+      n.cpus = 1
+    end
+  end
+  # NFS Client
+  cf.vm.define "nfs-client" do |nfs|
+    nfs.vm.box = "bento/ubuntu-22.04"
+    nfs.vm.hostname = "nfs-client.example.com"
+    nfs.vm.network "private_network", ip: "192.168.10.20"
+    nfs.vm.provider "virtualbox" do |n|
+      n.name = "nfs-client"
+      n.memory = 1024
+      n.cpus = 1
+    end
+  end
+end
