@@ -26,18 +26,18 @@ mountOptions:
 #  volumeMode: Filesystem
 #  accessModes:
 #    - ReadWriteMany
-#---
-#apiVersion: v1
-#kind: PersistentVolumeClaim
-#metadata:
-#  name: nginx-pvc
-#spec:
-#  accessModes:
-#    - ReadWriteMany
-#  storageClassName: "example-nfs"
-#  resources:
-#    requests:
-#      storage: 1Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nginx-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: "example-nfs"
+  resources:
+    requests:
+      storage: 1Gi
 #---
 #apiVersion: v1
 #kind: PersistentVolumeClaim
@@ -125,32 +125,32 @@ mountOptions:
 #          persistentVolumeClaim:
 #            claimName: nginx-pvc
 
----
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: db-server-pv
-spec:
-  capacity:
-    storage: 5Gi
-  accessModes:
-    - ReadWriteOnce
-  nfs:
-    path: /srv/nfs/kubedata/storage
-    server: nfs-server.example.com
-  persistentVolumeReclaimPolicy: Delete
-  claimRef:
-     name: mysql-pvc
-     namespace: default
-
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: mysql-pvc
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
+#---
+#apiVersion: v1
+#kind: PersistentVolume
+#metadata:
+#  name: db-server-pv
+#spec:
+#  capacity:
+#    storage: 5Gi
+#  accessModes:
+#    - ReadWriteOnce
+#  nfs:
+#    path: /srv/nfs/kubedata/storage
+#    server: nfs-server.example.com
+#  persistentVolumeReclaimPolicy: Delete
+#  claimRef:
+#     name: mysql-pvc
+#     namespace: default
+#
+#---
+#apiVersion: v1
+#kind: PersistentVolumeClaim
+#metadata:
+#  name: mysql-pvc
+#spec:
+#  accessModes:
+#    - ReadWriteOnce
+#  resources:
+#    requests:
+#      storage: 1Gi

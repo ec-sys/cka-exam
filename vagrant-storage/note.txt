@@ -7,3 +7,33 @@ https://thuanbui.me/cai-dat-nfs-server-va-nfs-client-tren-ubuntu-22-04/
 
 https://github.com/kubernetes-csi/csi-driver-nfs/blob/master/docs/driver-parameters.md
 192.168.10.15 nfs-server.example.com nfs-server
+
+sudo apt update
+sudo apt install nfs-kernel-server
+
+sudo mkdir -p /srv/nfs/kubedata
+sudo mkdir -p /srv/nfs/kubedata/db
+sudo mkdir -p /srv/nfs/kubedata/storage
+sudo mkdir -p /srv/nfs/kubedata/logs
+
+sudo chmod 777 /srv/nfs/kubedata
+sudo chmod 777 /srv/nfs/kubedata/db
+sudo chmod 777 /srv/nfs/kubedata/storage
+sudo chmod 777 /srv/nfs/kubedata/logs
+
+sudo chown nobody:nogroup /srv/nfs/kubedata
+sudo chown nobody:nogroup /srv/nfs/kubedata/db
+sudo chown nobody:nogroup /srv/nfs/kubedata/storage
+sudo chown nobody:nogroup /srv/nfs/kubedata/logs
+
+sudo vim /etc/exports
+/srv/nfs/kubedata *(rw,insecure,sync,no_subtree_check,no_root_squash)
+/srv/nfs/kubedata/db *(rw,insecure,sync,no_subtree_check,no_root_squash)
+/srv/nfs/kubedata/storage *(rw,insecure,sync,no_subtree_check,no_root_squash)
+/srv/nfs/kubedata/logs *(rw,insecure,sync,no_subtree_check,no_root_squash)
+
+sudo exportfs -a
+sudo systemctl restart nfs-kernel-server
+
+sudo vim /etc/hosts
+192.168.10.15 nfs-server.example.com nfs-server

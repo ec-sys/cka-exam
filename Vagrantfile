@@ -11,9 +11,9 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "control-plane" do |node|
     node.vm.provider "virtualbox" do |pmv|
-	  pmv.name = "k8s-control-plane"
-	  pmv.memory = 2048
-	  pmv.cpus = 2
+      pmv.name = "k8s-control-plane"
+      pmv.memory = 2048
+      pmv.cpus = 2
     end
     node.vm.hostname = "control-plane"
     node.vm.network "private_network", ip: "192.168.56.10"
@@ -23,7 +23,7 @@ Vagrant.configure("2") do |config|
     hostname = "node-#{'%02d' % i}"
     config.vm.define "#{hostname}" do |node|
       node.vm.provider "virtualbox" do |pmv|
-		pmv.name = "k8s-#{hostname}"
+        pmv.name = "k8s-#{hostname}"
         pmv.memory = 6144
         pmv.cpus = 4
       end
