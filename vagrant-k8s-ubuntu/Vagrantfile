@@ -35,7 +35,7 @@ Vagrant.configure("2") do |config|
       end
     end
     controlplane.vm.provider "virtualbox" do |vb|
-        vb.name = "k8s-control-plane"
+        vb.name = "u-control-plane"
         vb.cpus = settings["nodes"]["control"]["cpu"]
         vb.memory = settings["nodes"]["control"]["memory"]
         if settings["cluster_name"] and settings["cluster_name"] != ""
@@ -72,7 +72,7 @@ Vagrant.configure("2") do |config|
         end
       end
       node.vm.provider "virtualbox" do |vb|
-          vb.name = "k8s-node-0#{i}"
+          vb.name = "u-node-0#{i}"
           vb.cpus = settings["nodes"]["workers"]["cpu"]
           vb.memory = settings["nodes"]["workers"]["memory"]
           if settings["cluster_name"] and settings["cluster_name"] != ""

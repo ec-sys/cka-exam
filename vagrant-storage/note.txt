@@ -6,6 +6,8 @@ https://www.howtoforge.com/tutorial/install-nfs-server-and-client-on-debian/
 https://thuanbui.me/cai-dat-nfs-server-va-nfs-client-tren-ubuntu-22-04/
 
 https://github.com/kubernetes-csi/csi-driver-nfs/blob/master/docs/driver-parameters.md
+curl -skSL https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/v4.7.0/deploy/install-driver.sh | bash -s v4.7.0 --
+curl -skSL https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/v4.7.0/deploy/uninstall-driver.sh | bash -s v4.7.0 --
 192.168.10.15 nfs-server.example.com nfs-server
 
 sudo apt update
